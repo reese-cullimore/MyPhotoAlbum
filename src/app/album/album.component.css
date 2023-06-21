@@ -1,0 +1,19 @@
+mat-expansion-panel {
+    margin-bottom:10px;
+}
+
+.input-area {
+    margin-left: 10px;
+}
+
+.tiny-icon {
+    size: 10%;
+}
+
+.preview-title-img {
+    flex-grow: 0;
+}
+
+.preview-title-img img {
+    width: 40px
+}

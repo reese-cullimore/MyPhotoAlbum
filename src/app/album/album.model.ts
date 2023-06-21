@@ -9,4 +9,6 @@ export interface AlbumResponse {
 export interface AlbumRecord {
     id: number,
     title: string,
+    iconUrl: string,
+    largeUrl: string,
 }

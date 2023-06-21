@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IAlbumService } from './album.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AlbumRecord } from './types';
-import { Subscription } from 'rxjs';
+import { AlbumRecord } from './album.model';
 
 @Component({
   selector: 'app-album',
@@ -10,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./album.component.css']
 })
 
-export class AlbumComponent {
+export class AlbumComponent implements OnInit {
     form: FormGroup;
     isLoading:boolean=false;
     resOnFinish: string;
@@ -34,20 +33,23 @@ export class AlbumComponent {
         }
         const albumId = this.form.value.id;
         this.isLoading = true;
-        this.albumService
+        setTimeout(() => { this.albumService
             .getAllRecordsByAlbumId(albumId)
             .subscribe((response) => {
                 this.albumRecords = response.map(
                     (rec) => {
                         return {
                             id: rec.id,
-                            title: rec.title
+                            title: rec.title,
+                            largeUrl: rec.url,
+                            iconUrl: rec.thumbnailUrl
                         }
                     }
                 )
                 this.albumImageUrl = response[0].url;
             }
             );
+        }, 1000);
         this.resOnFinish = "DONE HERE IS A THING"
         
         this.isLoading = false;

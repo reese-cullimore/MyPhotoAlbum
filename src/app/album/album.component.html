@@ -1,11 +1,33 @@
 <hr>
-<mat-spinner *ngIf="isLoading"></mat-spinner>
-<form *ngIf="!isLoading" (submit)="onSubmit()" [formGroup]="form">
-    <mat-form-field>
-        <input matInput type="number" min="1" max="100" placeholder="example: 12" formControlName="id">
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Submit</button>
-</form>
+<div class="input-area">
+    <h3>Album Finder</h3>
+    <p>Please input an album id. Accepted values are from 1 to 100.</p>
+    <form *ngIf="!isLoading" (submit)="onSubmit()" [formGroup]="form">
+        <div>
+            <mat-form-field>
+                <input matInput type="number" min="1" max="100" placeholder="example: 12" formControlName="id">
+            </mat-form-field>
+        </div>
+        <div>
+            <button mat-raised-button color="primary" type="submit">Display Album</button>
+        </div>
+    </form>
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+</div>
 <hr>
-<{{albumRecords}}>
-<img src="{{albumImageUrl}}" alt="">
+<p *ngIf="albumRecords.length==0">Your results will display here</p>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let record of albumRecords">
+        <mat-expansion-panel-header>
+            <mat-panel-title  class="preview-title-img">
+                <img src="{{record.iconUrl}}" alt="Icon View">
+            </mat-panel-title>
+            <mat-panel-description><b>{{record.id}}</b>: {{record.title}}</mat-panel-description>
+        </mat-expansion-panel-header>
+        <img src="{{record.largeUrl}}" alt="Full View">
+    </mat-expansion-panel>
+</mat-accordion>
+<!-- <ul *ngFor="let record of albumRecords">
+    <li><img src="{{record.iconUrl}}" alt=""></li>
+    <li>{{record.id}} : {{record.title}}</li>
+</ul> -->
