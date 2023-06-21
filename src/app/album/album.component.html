@@ -1,0 +1,11 @@
+<hr>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<form *ngIf="!isLoading" (submit)="onSubmit()" [formGroup]="form">
+    <mat-form-field>
+        <input matInput type="number" min="1" max="100" placeholder="example: 12" formControlName="id">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>
+<hr>
+<{{albumRecords}}>
+<img src="{{albumImageUrl}}" alt="">
