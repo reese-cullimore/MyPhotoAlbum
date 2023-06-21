@@ -6,6 +6,7 @@
     font-size: 12px;
     font-style: italic;
     opacity: 90%;
+    float: left;
 }
 
 .divider {

@@ -27,3 +27,7 @@ mat-expansion-panel {
     margin-left: 10px;
     font-style: italic;
 }
+
+.spacer {
+    width: 2px;
+}

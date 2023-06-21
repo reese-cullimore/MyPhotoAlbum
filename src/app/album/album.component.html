@@ -22,12 +22,12 @@
             <mat-panel-title  class="preview-title-img">
                 <img src="{{record.iconUrl}}" alt="Icon View">
             </mat-panel-title>
-            <mat-panel-description><b>{{record.id}}</b>: {{record.title}}</mat-panel-description>
+            <mat-panel-description>
+                <div><b>{{record.id}}:</b> </div>
+                <div class="spacer"></div>
+                <div>{{record.title}}</div>
+            </mat-panel-description>
         </mat-expansion-panel-header>
         <img src="{{record.largeUrl}}" alt="Full View">
     </mat-expansion-panel>
 </mat-accordion>
-<!-- <ul *ngFor="let record of albumRecords">
-    <li><img src="{{record.iconUrl}}" alt=""></li>
-    <li>{{record.id}} : {{record.title}}</li>
-</ul> -->
