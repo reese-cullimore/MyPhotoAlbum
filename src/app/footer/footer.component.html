@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
     <span class="spacer"></span>
     <span class="socials">
-        <mat-icon>share</mat-icon>
+        <a mat-raised-button (click)="goToLink('https://www.linkedin.com/in/reese-cullimore-36b63b148')"><mat-icon>group</mat-icon>LinkedIn</a>
+        <div class="btn-divider"></div>
+        <button mat-raised-button (click)="goToLink('https://github.com/reese-cullimore')"><mat-icon>share</mat-icon>GitHub</button>
     </span>
 </mat-toolbar>

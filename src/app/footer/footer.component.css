@@ -1,3 +1,8 @@
 .spacer {
     flex: 1 1 auto;
 }
+
+.btn-divider {
+    width:5px;
+    display: inline-block;
+}

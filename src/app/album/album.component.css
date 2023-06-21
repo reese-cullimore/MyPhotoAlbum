@@ -17,3 +17,13 @@ mat-expansion-panel {
 .preview-title-img img {
     width: 40px
 }
+
+.filler-text {
+    margin-left: 10px;
+    opacity: .5;
+}
+
+.explanation-text {
+    margin-left: 10px;
+    font-style: italic;
+}

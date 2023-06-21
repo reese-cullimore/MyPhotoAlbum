@@ -1,7 +1,5 @@
-<hr>
 <div class="input-area">
-    <h3>Album Finder</h3>
-    <p>Please input an album id. Accepted values are from 1 to 100.</p>
+    <p>Please input an album id to search for an album. Accepted values are from 1 to 100.</p>
     <form *ngIf="!isLoading" (submit)="onSubmit()" [formGroup]="form">
         <div>
             <mat-form-field>
@@ -9,13 +7,15 @@
             </mat-form-field>
         </div>
         <div>
-            <button mat-raised-button color="primary" type="submit">Display Album</button>
+            <button mat-raised-button color="primary" type="submit" *ngIf="albumRecords.length==0">Display Album</button>
+            <button mat-raised-button color="primary" type="submit" *ngIf="albumRecords.length!=0">Display A Different Album</button>
         </div>
     </form>
     <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
 </div>
 <hr>
-<p *ngIf="albumRecords.length==0">Your results will display here</p>
+<p class="filler-text" *ngIf="albumRecords.length==0">Your results be shown here</p>
+<p class="explanation-text" *ngIf="albumNumber && !isLoading">Displaying the results for album {{albumNumber}}</p>
 <mat-accordion>
     <mat-expansion-panel *ngFor="let record of albumRecords">
         <mat-expansion-panel-header>

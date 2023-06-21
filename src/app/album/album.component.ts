@@ -15,6 +15,7 @@ export class AlbumComponent implements OnInit {
     resOnFinish: string;
     albumRecords: Array<AlbumRecord> = [];
     albumImageUrl: string;
+    albumNumber: number;
 
     constructor(public albumService: IAlbumService) {}
 
@@ -28,13 +29,13 @@ export class AlbumComponent implements OnInit {
 
     onSubmit = () => {
         if (this.form.invalid) {
-            alert('Hey, wanna try that again?? You can only input a number between 1 and 100.');
+            alert('Hey, would you mind trying that again? You can only input a number between 1 and 100.');
             return;
         }
-        const albumId = this.form.value.id;
+        this.albumNumber = this.form.value.id;
         this.isLoading = true;
-        setTimeout(() => { this.albumService
-            .getAllRecordsByAlbumId(albumId)
+        this.albumService
+            .getAllRecordsByAlbumId(this.albumNumber)
             .subscribe((response) => {
                 this.albumRecords = response.map(
                     (rec) => {
@@ -48,8 +49,7 @@ export class AlbumComponent implements OnInit {
                 )
                 this.albumImageUrl = response[0].url;
             }
-            );
-        }, 1000);
+        );
         this.resOnFinish = "DONE HERE IS A THING"
         
         this.isLoading = false;
