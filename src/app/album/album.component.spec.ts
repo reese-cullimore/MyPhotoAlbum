@@ -68,7 +68,7 @@ describe('PlaceholderJSONAlbumService', () => {
             imports: [HttpClientModule],
             providers: [PlaceholderJSONAlbumService]
         });
-        service = TestBed.get(PlaceholderJSONAlbumService);
+        service = TestBed.inject(PlaceholderJSONAlbumService);
         
     });
   
@@ -76,7 +76,7 @@ describe('PlaceholderJSONAlbumService', () => {
         expect(service).toBeTruthy();
     });
 
-    it('should return an Observable when supplied with an albumId',() => {
+    it('getAllRecordsByAlbumId should return an Observable when supplied with an albumId',() => {
         const id = 1;
         const res = service.getAllRecordsByAlbumId(id);
 

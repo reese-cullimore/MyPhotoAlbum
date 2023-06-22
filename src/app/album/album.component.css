@@ -24,6 +24,7 @@ mat-expansion-panel {
 }
 
 .explanation-text {
+    margin-top: 30px;
     margin-left: 10px;
     font-style: italic;
 }
